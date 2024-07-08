@@ -11,6 +11,21 @@ function ProductList() {
                     image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg",
                     description: "Produces oxygen at night, improving air quality.",
                     cost: "$15"
+                  {plantsArray.map((category, index) => (
+  <div key={index}>
+    <h1><div>{category.category}</div></h1>
+    <div className="product-list">
+      {category.plants.map((plant, plantIndex) => (
+        <div className="product-card" key={plantIndex}>
+          <img className="product-image" src={plant.image} alt={plant.name} />
+         <div className="product-title">{plant.name}</div>
+/*Similarly like the above plant.name show other details like description and cost*/
+         <button  onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+        </div>
+      ))}
+    </div>
+  </div>
+))}
                 },
                 {
                     name: "Spider Plant",
